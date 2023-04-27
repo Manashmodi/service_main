@@ -1,0 +1,314 @@
+<html>
+  <head> 
+ 
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        <center><h1>House Rental Service</h1></center>
+      <hr />
+      <div id="display"></div> 
+    </div>  
+    <footer>
+        <div class="services">
+            <h3>Our Services</h3>
+            <ul>
+                <li><a href="#transport-service">Transport Service</a></li>
+                <li><a href="#house-rental-service">House Rental Service</a></li>
+                <li><a href="#emergency-service">Emergency Service</a></li>
+            </ul>
+        </div>
+        <div class="contact">
+            <h3>Contact Us</h3>
+            <p>Silicon collage</p>
+            <p>Bhubnswer</p>
+            <p>Phone: 9788888888</p>
+            <p>Email: info@ourservices.com</p>
+        </div>
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <ul>
+                <li><a href="#">facebook</a></li>
+                <li><a href="#">instagram</a></li>
+                <li><a href="#">Twitter</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        const dataUrl = 'data:t;charset=utf-8,' + encodeURIComponent(JSON.stringify({
+            "properties":[
+                {
+                    "id":1,
+                    "name":"2 BHK Apartment",
+                    "address":"XYZ Road, Mumbai",
+                    "rent":800,
+                    "image":"https://media.istockphoto.com/id/1436217023/photo/exterior-of-a-blue-suburban-home.jpg?s=2048x2048&w=is&k=20&c=Z9Wc1NpUagwfdZbtHCyVEF9JnLXDIsPyIrw48-UXFb0=",
+                    "payload": {}
+                },
+                {
+                    "id":2,
+                    "name":"1 BHK Apartment",
+                    "address":"ABC Road, Bengaluru",
+                    "rent":6000,
+                    "image":"https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+                    "payload": {}
+                },
+                {
+                    "id":3,
+                    "name":"3 BHK Villa",
+                    "address":"PQR Road, Goa",
+                    "rent":12000,
+                    "image":"https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aG9tZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+                    "payload": {}
+                },
+                {
+                    "id":4,
+                    "name":"1 RK Flat",
+                    "address":"LMN Road, Pune",
+                    "rent":4000,
+                    "image":"https://media.istockphoto.com/id/1440262289/photo/modern-custom-new-england-colonial-home-with-an-american-flag-on-a-sunny-day.jpg?s=612x612&w=0&k=20&c=z3MrcXagiIM2LVuWphs2G69_LplQK_VbTfatuwuEK4Q=",
+                    "payload": {}
+                },
+                {
+                    "id":5,
+                    "name":"2 BHK Apartment",
+                    "address":"EFG Road, Chennai",
+                    "rent":7000,
+                    "image":"https://media.istockphoto.com/id/604359930/photo/craftsman-american-house-with-garage-and-concrete-floor-porch.jpg?s=612x612&w=0&k=20&c=3jyZhBOHqVMQG-tVSASbCdOn0_SsP_N7ba412zwGFUo=",
+                    "payload": {}
+                },
+                {
+                    "id":6,
+                    "name":"1 BHK Apartment",
+                    "address":"HIJ Road, Delhi",
+                    "rent":5500,
+                    "image":"https://media.istockphoto.com/id/477851775/photo/single-family-home-usa.jpg?s=612x612&w=0&k=20&c=HMFZ5auCw89At4w9tXgN3qlsGzBLlMVBLyD3BYBlWYQ=",
+                    "payload": {}
+                },
+                {
+                    "id":7,
+                    "name":"2 BHK Apartment",
+                    "address":"UVW Road, Hyderabad",
+                    "rent":7500,
+                    "image":"https://th.bing.com/th/id/OIP.GG5Lt2euKMi3vR2G65NNdwHaE8?w=245&h=180&c=7&r=0&o=5&pid=1.7",
+                    "payload": {}
+                },
+                {
+                    "id":8,
+                    "name":"1 BHK Apartment",
+                    "address":"RST Road, Kolkata",
+                    "rent":5000,
+                    "image":"https://th.bing.com/th/id/OIP.Ysah5Lw__Cv0fFzU3wgcHQHaEK?w=306&h=180&c=7&r=0&o=5&pid=1.7",
+                    "payload": {}
+                },
+                {
+                    "id":9,
+                    "name":"1 BHK Apartment",
+                    "address":"OPQ Road, Ahmedabad",
+                    "rent":4500,
+                    "image":"https://th.bing.com/th/id/OIP.NvhV7NWcvd7ERNzZBYIkUAHaFj?w=248&h=186&c=7&r=0&o=5&pid=1.7",
+                    "payload": {}
+                }
+            ]
+        }));
+        
+        const properties = JSON.parse(decodeURIComponent(dataUrl.split(',')[1])).properties;
+        const display = document.getElementById('display');
+        
+        for (let i = 0; i < properties.length; i++) {
+            const property = properties[i];
+            const card = '<div class="col">' +
+              '<div class="card mb-3">' +
+              '<img src="' + property.image + '" alt="' + property.name + '" class="card-img-top"/>' +
+              '<div class="card-body">' +
+              '<h5 class="card-title">' + property.name + '</h5>' +
+              '<p class="card-text">' + property.address + '</p>' +
+              '<p class="card-text">Rent: ' + property.rent + '</p>' +
+              '</div>' +
+              '</div>' +
+              '</div>';
+            display.innerHTML += card;
+          }
+          
+          // Add row class to the display container
+          display.classList.add('row', 'row-cols-1', 'row-cols-md-3', 'g-4');
+          
+            </script>
+            
+                <style>
+                    /* add border-radius and background color to card */
+                    .card {
+                      border-radius: 10px;
+                      background-color: #f8f9fa;
+                    }
+                    
+                    /* add hover effect to card */
+                    .card:hover {
+                      transform: translateY(-5px);
+                      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+                    } 
+                    footer {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        background-color:rgba(12, 12, 109, 0.384);
+                        padding: 20px;
+                        font-family: Arial, sans-serif;
+                        font-size: 16px;
+                        color: #333;
+                        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                      }
+                      
+                      .services ul {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                      }
+                      
+                      .services li:not(:last-child) {
+                        margin-right: 20px;
+                      }
+                      
+                      .services a {
+                        color: #333;
+                        text-decoration: none;
+                        transition: all 0.3s ease;
+                      }
+                      
+                      .services a:hover {
+                        color: #555;
+                      }
+                      
+                      .contact p {
+                        margin: 0;
+                        line-height: 1.5;
+                      }
+                      
+                      .social-media ul {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        display: flex;
+                      }
+                      
+                      .social-media li:not(:last-child) {
+                        margin-right: 10px;
+                      } 
+                      .row {
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin: 0 -15px;
+                      }
+                  
+                      .col {
+                        padding: 0 15px;
+                        width: 100%;
+                        max-width: 100%;
+                      }
+                  
+                      @media screen and (min-width: 576px) {
+                        .col {
+                          width: 50%;
+                          max-width: 50%;
+                        }
+                      }
+                  
+                      @media screen and (min-width: 992px) {
+                        .col {
+                          width: 33.33%;
+                          max-width: 33.33%;
+                        }
+                      }
+                  
+                      .card {
+                        margin-bottom: 30px;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                        transition: 0.3s;
+                        border-radius: 5px;
+                      }
+                  
+                      .card:hover {
+                        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+                      }
+                  
+                      .card img {
+                        border-radius: 5px 5px 0 0;
+                        object-fit: cover;
+                        width: 100%;
+                        height: 200px;
+                      }
+                  
+                      .card-body {
+                        padding: 15px;
+                      }
+                  
+                      .card-title {
+                        font-size: 20px;
+                        font-weight: 600;
+                        margin-bottom: 10px;
+                      }
+                  
+                      .card-text {
+                        font-size: 16px;
+                        margin-bottom: 15px;
+                      }
+                  
+                      .card-text:last-child {
+                        margin-bottom: 0;
+                      } 
+                      /* Default styles */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.services ul,
+.social-media ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.services li,
+.social-media li {
+    margin: 5px 0;
+}
+
+.services a,
+.social-media a {
+    text-decoration: none;
+    color: #333;
+}
+
+.contact p {
+    margin: 5px 0;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services,
+    .contact,
+    .social-media {
+        margin-bottom: 20px;
+    }
+}
+
+                  
+            </style>
+              </body>
+            </html>
