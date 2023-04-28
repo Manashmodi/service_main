@@ -21,6 +21,8 @@
 			<textarea id="reason" name="reason" required></textarea>
 
 			<input type="submit" class="submit" value="Submit">
+			<button id="emergency-call-button">Emergency Call</button>
+
 		</form>
 
 		<div id="message"></div>
@@ -44,6 +46,13 @@ form.addEventListener('submit', function(event) {
 		form.reset();
 	}, 2000);
 });
+		const emergencyCallButton = document.getElementById("emergency-call-button");
+
+emergencyCallButton.addEventListener("click", function() {
+  // Code to call emergency services goes here
+  alert("Emergency services have been notified");
+});
+
 
   </script>
   <style>
@@ -107,6 +116,20 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
 }
+	  #emergency-call-button {
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#emergency-call-button:hover {
+  background-color: darkred;
+}
+
 
   </style>
 </body>
